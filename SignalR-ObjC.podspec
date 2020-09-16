@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Framework/*.{h}', 'SignalR.Client/**/*.{h,m}'
-    sp.dependency 'AFNetworking', '~>2.0'
+    sp.dependency   pod 'AFNetworking', '~> 3.0', :source => 'https://github.com/ElfSundae/CocoaPods-Specs.git'
     sp.dependency 'SocketRocket', '~>0.4'
   end
 
