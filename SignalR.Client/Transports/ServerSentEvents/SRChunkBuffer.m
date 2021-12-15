@@ -45,7 +45,7 @@
 }
 
 - (void)add:(NSData *)buffer {
-    if(buffer!=nil)
+    if (!buffer) return;
     [_buffer appendString:[[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]];
 }
 
