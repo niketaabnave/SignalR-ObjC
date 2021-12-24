@@ -46,7 +46,12 @@
 
 - (void)add:(NSData *)buffer {
     if (!buffer) return;
-    [_buffer appendString:[[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]];
+    if(buffer != NULL &&buffer != nil){
+        [_buffer appendString:[[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]];
+    }else{
+        NSString* buff = @"buffer is null or nill";
+        NSLog(@"Buffer Data = %@", buff);
+    }
 }
 
 - (NSString *)readLine {
