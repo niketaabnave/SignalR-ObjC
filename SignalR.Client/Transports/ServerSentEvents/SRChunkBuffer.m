@@ -47,7 +47,21 @@
 - (void)add:(NSData *)buffer {
     if (!buffer) return;
     if(buffer != NULL &&buffer != nil){
-        [_buffer appendString:[[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]];
+        NSLog(@"Buffer Data original = %@", buffer);
+        
+        @try {
+            
+            if([[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]!=NULL && [[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]!=nil){
+                [_buffer appendString:[[NSString alloc] initWithData:buffer encoding:NSUTF8StringEncoding]];
+            }else{
+                NSString* buff = @"Erroe while encoding buffer";
+                NSLog(@"Buffer endocde = %@", buff);
+            }
+         }
+         @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+         }
+       
     }else{
         NSString* buff = @"buffer is null or nill";
         NSLog(@"Buffer Data = %@", buff);
